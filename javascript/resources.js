@@ -7,8 +7,7 @@ const Resources = {
     analyse: 'Analyze',
     manage: 'Manage'
   },
-  sheetId: '1_9AU2UCZxMDSSBaAjuTi7osLVUez7u_m_gT4Q7bRiAg',
-  // sheetId: '1LpdUOpH_pcPcOk-ZPVwE4bYf8DXBmJsiddpUXcBBFsk',
+  sheetId: '1LpdUOpH_pcPcOk-ZPVwE4bYf8DXBmJsiddpUXcBBFsk',
 
   display: (valuesArr)=> {
     resourceList = ""
@@ -58,7 +57,7 @@ $( document ).ready(function() {
 
   if(mostRelevant && runnerUp) {
     Resources.profile = {
-      mostRelevant: 'design',
+      mostRelevant: mostRelevant,
       runnerUp: runnerUp
     };
     // 1. Load the JavaScript client library.
