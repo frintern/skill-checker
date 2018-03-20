@@ -23,7 +23,7 @@ const Resources = {
     if(listArr[1] === '#') {
       // build a heading
       return `<h3>${listArr[0]}</h3>`
-    } else if(listArr[0] === '') {
+    } else if(listArr[1] === 'br') {
       // build a line break
       return `<br>`
     } else if(listArr[1] === '~') {
