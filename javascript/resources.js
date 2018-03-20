@@ -23,9 +23,9 @@ const Resources = {
     if(listArr[1] === '#') {
       // build a heading
       return `<h3>${listArr[0]}</h3>`
-    } else if(listArr[1] === 'br') {
+    } else if(listArr[1] === '-') {
       // build a line break
-      return `<br>`
+      return `<p>${listArr[0]}</p>`
     } else if(listArr[1] === '~') {
       // build a heading subtitle
       return `<p><i>${listArr[0]}</i></p>`
