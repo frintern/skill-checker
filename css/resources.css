@@ -1,0 +1,14 @@
+body {
+  font-family: monospace;
+  font-size: 1.2em;
+  background-color: black;
+  color: white;
+  display: flex;
+  flex-flow: column;
+}
+
+
+.body {
+  flex: 1;
+  margin: 2em 3em;
+}

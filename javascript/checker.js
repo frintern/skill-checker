@@ -9,71 +9,47 @@ const Checker = {
   },
   questions: [
     {
-      "question": "What did you study in school?",
+      "question": "1. What did you study in school?",
       "answers": [
         {
-          "text": "Sciences",
+          "text": "Sciences/Engineering",
           "key": "2"
         },
         {
-          "text": "Social sciences",
+          "text": "Social sciences/Humanities",
           "key": "3"
         },
         {
           "text": "Arts",
           "key": "1"
-        },
-        {
-          "text": "Humanities",
-          "key": "3"
-        },
-        {
-          "text": "Engineering",
-          "key": "2"
         }
       ]
     },
     {
-      "question": "If you had to pick, which ones would you pick?",
+      "question": "2. If you had to pick, which ones would you pick?",
       "answers": [
-        {
-          "text": "Fine Arts",
-          "key": "1"
-        },
         {
           "text": "Painting",
           "key": "1"
         },
         {
-          "text": "Technical Drawing",
+          "text": "Sketching",
           "key": "1"
         },
         {
-          "text": "Fashion Design",
+          "text": "Drawing",
           "key": "1"
-        },
-        {
-          "text": "Statistics",
-          "key": "2"
         },
         {
           "text": "Puzzles",
           "key": "2"
         },
         {
-          "text": "Calculus",
+          "text": "Calculations",
           "key": "2"
         },
         {
-          "text": "Social Studies",
-          "key": "3"
-        },
-        {
-          "text": "Engineering",
-          "key": "2"
-        },
-        {
-          "text": "History",
+          "text": "Event Management",
           "key": "3"
         },
         {
@@ -83,14 +59,10 @@ const Checker = {
       ]
     },
     {
-      "question": "Which of the following do you enjoy doing the most?",
+      "question": "3. Which of the following do you enjoy doing the most?",
       "answers": [
         {
           "text": "Taking Pictures",
-          "key": "1"
-        },
-        {
-          "text": "Doodling/sketching/drawing",
           "key": "1"
         },
         {
@@ -107,24 +79,32 @@ const Checker = {
         },
         {
           "text": "Playing board games",
-          "key": "2"
-        },
-        {
-          "text": "Planning events",
           "key": "3"
         },
         {
-          "text": "Tinkering with things around the house",
+          "text": "Leading a group through an exercise",
+          "key": "3"
+        },
+        {
+          "text": "Watching documentaries",
           "key": "2"
         },
         {
           "text": "Finding out how things work",
           "key": "2"
+        },
+        {
+          "text": "Arranging and organizing things",
+          "key": "3"
+        },
+        {
+          "text": "Making plans for future activities",
+          "key": "3"
         }
       ]
     },
     {
-      "question": "Which describes you the most?",
+      "question": "4. Which describes you the most?",
       "answers": [
         {
           "text": "Spending alone time with yourself and taking quiet walks. Basically talking or mingling with a lot of people makes you tired",
@@ -141,7 +121,7 @@ const Checker = {
       ]
     },
     {
-      "question": "When given a task, which of the following do you do first?",
+      "question": "5. When given a task, which of the following do you do first?",
       "answers": [
         {
           "text": "Think through the whole task",
@@ -170,7 +150,7 @@ const Checker = {
       ]
     },
     {
-      "question": "If you were to be part of a team working on something, which role would you prefer?",
+      "question": "6. If you were to be part of a team working on something, which role would you prefer?",
       "answers": [
         {
           "text": "To be the planner, that is to sketch/draw out or plan it out",
@@ -191,7 +171,7 @@ const Checker = {
       ]
     },
     {
-      "question": "Which of the following do you have experience in?",
+      "question": "7. Which of the following do you have experience in?",
       "answers": [
         {
           "text": "Managing or leading a community or group of users, like a departmental association, CDS group or a small organization",
@@ -246,7 +226,8 @@ const Checker = {
     var ansHtml = "<ul>";
     $.each(ans_arr, (index, ans) => {
       ansHtml += "<li>"
-      ansHtml += `<input type='checkbox' value='${ans.key}'>${ans.text}<br>`
+      ansHtml += `<input type='checkbox' value='${ans.key}' id='r-${index}'>`
+      ansHtml += `<label for='r-${index}'>${ans.text}</label><br>`
       ansHtml += "</li>";
     });
     ansHtml += "</ul>";

@@ -21,8 +21,14 @@ const Resources = {
 
   buildListElement: (listArr) => {
     if(listArr[1] === '#') {
-      // build a sub-heading
+      // build a heading
       return `<h3>${listArr[0]}</h3>`
+    } else if(listArr[1] === '~') {
+      // build a heading subtitle
+      return `<p><i>${listArr[0]}</i></p>`
+    } else if(listArr[1] === '*') {
+      // build a sub-heading
+      return `<p><b>${listArr[0]}</b></p>`
     } else {
       // build a linked paragraph --- url is present(assumption)
       return `<p>${listArr[0]} <a href='${listArr[1]}'>View resource</a></p>`
