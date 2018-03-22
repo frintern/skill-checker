@@ -2,9 +2,9 @@ const Checker = {
   user: {
     email: '',
     weights: {
-      "1": 0,
-      "2": 0,
-      "3": 0
+      "1": 0, // design
+      "2": 0, // analyse
+      "3": 0  // manage
     }
   },
   questions: [
@@ -192,10 +192,25 @@ const Checker = {
       ]
     }
   ],
-  profileKeys: {
-    "1": "design",
-    "2": "analyse",
-    "3": "manage"
+
+  showQuestion: (obj, index) => {
+    const answers = Checker.buildPossibleAnswers(obj.answers);
+    $('#question-form #index').val(index);
+    $('#question-form #question').html(obj.question);
+    $('#question-form #answers').html(answers);
+  },
+
+  buildPossibleAnswers: (ans_arr) => {
+    var ansHtml = "<ul>";
+    $.each(ans_arr, (index, ans) => {
+      ansHtml += "<li>"
+      ansHtml += `<input type='checkbox' value='${ans.key}' id='r-${index}'>`
+      ansHtml += `<label for='r-${index}'>${ans.text}</label><br>`
+      ansHtml += "</li>";
+    });
+    ansHtml += "</ul>";
+
+    return ansHtml;
   },
 
   submitQuestion: (responses, index) => {
@@ -211,6 +226,7 @@ const Checker = {
       Checker.showQuestion(nextQuestion, nextIndex);
     } else {
       // show learning resources for user
+      sessionStorage.setItem('userExperience', Checker.getResponseTexts());
       Checker.getRelevantResources();
     }
   },
@@ -235,12 +251,13 @@ const Checker = {
     return ansHtml;
   },
 
-  getRelevantResources: () => {
-    const weights = Checker.user.weights;
-    const hierarchy = Object.keys(weights).sort((a, b) => parseInt(weights[a]) - parseInt(weights[b]));
+  getResponseTexts: () => {
+    const responses = $('#question-form #answers input:checked').map((i,c) => c.labels[0].innerText);
+    return responses.get().join(', ');
+  },
 
-    sessionStorage.setItem('mostRelevant', Checker.profileKeys[hierarchy[2]]);
-    sessionStorage.setItem('runnerUp', Checker.profileKeys[hierarchy[1]]);
+  getRelevantResources: () => {
+    $.each(Checker.user.weights, (key, score) => sessionStorage.setItem(`skill-${key}`, score));
     window.location.href = 'resources.html'
   }
 }

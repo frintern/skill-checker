@@ -1,6 +1,25 @@
-const Resources = {
-  profile: {},
+const googleApi = {
   apiKey: 'AIzaSyDekIQgs8W6fb7E22VMnaw4ftaI0XSTF1g',
+  clientId: '733810600750-sl25rkeb0fui319v3srhtf8lfhengims.apps.googleusercontent.com',
+  scopes: "https://www.googleapis.com/auth/spreadsheets",
+
+  initClient: () => {
+    // 2. Initialize the JavaScript client library.
+    gapi.client.init({
+      apiKey: googleApi.apiKey,
+      clientId: googleApi.clientId,
+      discoveryDocs: googleApi.clientSecret,
+      scope: googleApi.scopes,
+      discoveryDocs: ["https://sheets.googleapis.com/$discovery/rest?version=v4"],
+    })
+    .then(() => {
+      // 3. Make the API requests.
+      Resources.fetchRelevant();
+    });
+  },
+}
+
+const Resources = {
   // these are the names of the different tabs on the Learning Playlist google sheet, as they map to our keys here.
   resourceKeys: {
     design: 'Design',
@@ -38,39 +57,70 @@ const Resources = {
     }
   },
 
-  initClient: () => {
-    // 2. Initialize the JavaScript client library.
-    gapi.client.init({
-      apiKey: Resources.apiKey,
-      discoveryDocs: ["https://sheets.googleapis.com/$discovery/rest?version=v4"],
-      // clientId and scope are optional if auth is not required.
-    })
-    .then(() => {
-      // 3. Initialize and make the API request.
-      gapi.client.sheets.spreadsheets.values.get({
-        spreadsheetId: Resources.sheetId,
-        range: `${Resources.resourceKeys[Resources.profile.mostRelevant]}!A:B`,
-      }).then((response) => {
-        Resources.display(response.result.values);
-      }, (reason) => {
-        console.log('Error: ', reason.result.error);
-        Resources.display(['No data found.', '#'])
-      });
+  fetchRelevant: () => {
+    gapi.client.sheets.spreadsheets.values.get({
+      spreadsheetId: Resources.sheetId,
+      range: `${Resources.resourceKeys[UserDetails.mostRelevant]}!A:B`,
+    }).then((response) => {
+      Resources.display(response.result.values);
+    }, (reason) => {
+      console.log('Error: ', reason.result.error);
+      Resources.display(['No data found.', '#'])
     });
   }
 }
 
-$( document ).ready(function() {
-  const mostRelevant = sessionStorage.getItem('mostRelevant');
-  const runnerUp = sessionStorage.getItem('runnerUp');
+const UserDetails = {
+  sheetScript: 'https://script.google.com/macros/s/AKfycbxFfDz2nTrhxWVn0GfKoEQwpJN9NEE7GuEXB2me92WxNOd2iAU/exec',
+  profileKeys: {
+    design: '1',
+    analyse: '2',
+    manage: '3'
+  },
+  skillsetWeights: {},
 
-  if(mostRelevant && runnerUp) {
-    Resources.profile = {
-      mostRelevant: mostRelevant,
-      runnerUp: runnerUp
-    };
+  persist: () => {
+    const body = UserDetails.buildParams();
+    $.ajax({
+      type: "POST",
+      url: UserDetails.sheetScript,
+      data: body,
+      contentType: "application/x-www-form-urlencoded"
+    });
+  },
+
+  buildParams: () => {
+    const userEmail = sessionStorage.getItem('userEmail');
+    const userExperience = sessionStorage.getItem('userExperience');
+
+    // Keys here should correspond with headers on google sheet.
+    return {
+      UserEmail: userEmail,
+      Experiences: userExperience,
+      DesignScore: UserDetails.skillsetWeights['design'],
+      AnalyseScore: UserDetails.skillsetWeights['analyse'],
+      ManageScore: UserDetails.skillsetWeights['manage'],
+      formGoogleSheetName: 'Sheet1', // sheet Tab we are logging to
+    }
+  }
+}
+
+$( document ).ready(function() {
+  $.each(UserDetails.profileKeys, (skill, key) => {
+    UserDetails.skillsetWeights[skill] = sessionStorage.getItem(`skill-${key}`)
+  });
+  const weights = UserDetails.skillsetWeights;
+  const checked = Object.values(weights).some(w => w > 0);
+
+  if(checked) {
+    const hierarchy = Object.keys(weights).sort((a, b) => parseInt(weights[a]) - parseInt(weights[b]));
+    // mostRelevant is the last guy in the hierarchy
+    const mostRelevant = hierarchy[2]
+
+    UserDetails.mostRelevant = mostRelevant;
     // 1. Load the JavaScript client library.
-    gapi.load('client', Resources.initClient);
+    gapi.load('client:auth2', googleApi.initClient);
+    UserDetails.persist();
   } else {
     window.location.href = 'checker.html';
   }
