@@ -1,0 +1,16 @@
+.DS_Store
+.vscode
+node_modules
+.node-version
+/dist
+/export*
+npm-debug*
+.env
+
+# Ignore all logfiles and tempfiles.
+/log/*
+*.log
+!/log/.keep
+/tmp
+coverage
+.idea
