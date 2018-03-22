@@ -1,7 +1,7 @@
 body {
   font-family: monospace;
   font-size: 1.2em;
-  background-color: black;
+  background-color: #0077BE;
   color: white;
   display: flex;
   flex-flow: column;
@@ -11,4 +11,22 @@ body {
 .body {
   flex: 1;
   margin: 2em 3em;
+}
+
+
+a {
+  text-decoration: underline;
+  color: white;
+}
+
+
+.logo a {
+  font-size: 20px;
+  text-decoration: none;
+}
+
+
+ul {
+  list-style-type: none;
+  padding: 0;
 }
