@@ -1,15 +1,10 @@
 const googleApi = {
   apiKey: 'AIzaSyDekIQgs8W6fb7E22VMnaw4ftaI0XSTF1g',
-  clientId: '733810600750-sl25rkeb0fui319v3srhtf8lfhengims.apps.googleusercontent.com',
-  scopes: "https://www.googleapis.com/auth/spreadsheets",
 
   initClient: () => {
     // 2. Initialize the JavaScript client library.
     gapi.client.init({
       apiKey: googleApi.apiKey,
-      clientId: googleApi.clientId,
-      discoveryDocs: googleApi.clientSecret,
-      scope: googleApi.scopes,
       discoveryDocs: ["https://sheets.googleapis.com/$discovery/rest?version=v4"],
     })
     .then(() => {
