@@ -48,7 +48,7 @@ const Resources = {
       return `<p><b>${listArr[0]}</b></p>`
     } else {
       // build a linked paragraph --- url is present(assumption)
-      return `<p>${listArr[0]} <a href='${listArr[1]}'>View resource</a></p>`
+      return `<p>${listArr[0]} <a href='${listArr[1]}' target='_blank'>View resource</a></p>`
     }
   },
 
