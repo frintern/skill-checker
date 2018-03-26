@@ -37,10 +37,6 @@ const Checker = {
           "key": "1"
         },
         {
-          "text": "Drawing",
-          "key": "1"
-        },
-        {
           "text": "Puzzles",
           "key": "2"
         },
@@ -76,10 +72,6 @@ const Checker = {
         {
           "text": "Reading picture-less novels - books",
           "key": "2"
-        },
-        {
-          "text": "Playing board games",
-          "key": "3"
         },
         {
           "text": "Leading a group through an exercise",
@@ -141,7 +133,7 @@ const Checker = {
         },
         {
           "text": "Ask more questions about the task",
-          "key": "2"
+          "key": "3"
         },
         {
           "text": "Find/get someone to help you do the task",
@@ -161,10 +153,6 @@ const Checker = {
           "key": "2"
         },
         {
-          "text": "To be the fixer, to fix it when it breaks down",
-          "key": "2"
-        },
-        {
           "text": "To be the guide, check, making sure everything going on is always on track, and not going against goals and making sure goals are in line with current trends etc…",
           "key": "3"
         }
@@ -174,20 +162,16 @@ const Checker = {
       "question": "7. Which of the following do you have experience in?",
       "answers": [
         {
-          "text": "Managing or leading a community or group of users, like a departmental association, CDS group or a small organization",
-          "key": "1"
-        },
-        {
           "text": "Managing a project: Planning work to be done and helping monitor the work like a department’s project, community project or the likes",
-          "key": "2"
+          "key": "3"
         },
         {
           "text": "Creating flyers and designs on your computer",
-          "key": "2"
+          "key": "1"
         },
         {
           "text": "Creating websites or writing programs or coding",
-          "key": "3"
+          "key": "2"
         }
       ]
     }
