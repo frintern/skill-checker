@@ -82,7 +82,7 @@ const DomPage = {
     return `
     <h3>${listArr[0]}</h3>
     <p>${listArr[1]}</p>
-    <button onclick='Resources.getPlayList("${listArr[2]}")'>View related resources</button>
+    <button onclick='Resources.getPlayList("${listArr[2]}")'>View learning playlist</button>
     `
   }
 }
