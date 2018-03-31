@@ -9,31 +9,57 @@ const googleApi = {
     })
     .then(() => {
       // 3. Make the API requests.
-      Resources.fetchRelevant();
+      const optionsRange = `${Resources.optionKeys[UserDetails.mostRelevant]}!A:C`;
+      Resources.fetchRelevant(optionsRange, 'options');
     });
   },
 }
 
 const Resources = {
   // these are the names of the different tabs on the Learning Playlist google sheet, as they map to our keys here.
-  resourceKeys: {
+  optionKeys: {
     design: 'Design',
     analyse: 'Analyze',
     manage: 'Manage'
   },
-  sheetId: '1LpdUOpH_pcPcOk-ZPVwE4bYf8DXBmJsiddpUXcBBFsk',
+  sheetId: '19nrhUwb0j9A4UPMnHH2VfzlX2tBorj3iVSAHR9YtWdg',
 
-  display: (valuesArr)=> {
-    resourceList = ""
-    $.each(valuesArr, (i, arr) => {
-      resourceList += Resources.buildListElement(arr);
+  fetchRelevant: (range, build) => {
+    gapi.client.sheets.spreadsheets.values.get({
+      spreadsheetId: Resources.sheetId,
+      range: range,
+    }).then((response) => {
+      DomPage.render(response.result.values, build);
+    }, (reason) => {
+      console.log('Error: ', reason.result.error);
+      Resources.display(['No data found.', '#'])
     });
+  },
+
+  getPlayList: (sheetTab) => {
+    Resources.fetchRelevant(`${sheetTab}!A:B`, 'play-list');
+  }
+}
+
+const DomPage = {
+  render: (valuesArr, build)=> {
+    resourceList = ""
+
+    if(build === 'options') {
+      $.each(valuesArr, (i, arr) => {
+        resourceList += DomPage.buildJobOptionListElement(arr);
+      });
+    }else if(build === 'play-list') {
+      $.each(valuesArr, (i, arr) => {
+        resourceList += DomPage.buildPlayListElement(arr);
+      });
+    }
 
     // append list to the page
     $('#resources').html(resourceList);
   },
 
-  buildListElement: (listArr) => {
+  buildPlayListElement: (listArr) => {
     if(listArr[1] === '#') {
       // build a heading
       return `<h3>${listArr[0]}</h3>`
@@ -52,16 +78,12 @@ const Resources = {
     }
   },
 
-  fetchRelevant: () => {
-    gapi.client.sheets.spreadsheets.values.get({
-      spreadsheetId: Resources.sheetId,
-      range: `${Resources.resourceKeys[UserDetails.mostRelevant]}!A:B`,
-    }).then((response) => {
-      Resources.display(response.result.values);
-    }, (reason) => {
-      console.log('Error: ', reason.result.error);
-      Resources.display(['No data found.', '#'])
-    });
+  buildJobOptionListElement: (listArr) => {
+    return `
+    <h3>${listArr[0]}</h3>
+    <p>${listArr[1]}</p>
+    <button onclick='Resources.getPlayList("${listArr[2]}")'>View related resources</button>
+    `
   }
 }
 
