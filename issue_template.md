@@ -24,6 +24,7 @@
 **Page Type**
 - [ ] Home Page (Landing Page)
 - [ ] Question Page (Checker Page)
+- [ ] Job Options Page
 - [ ] Resource Page
 - [ ] Trello Board 
 - [ ] Other 
