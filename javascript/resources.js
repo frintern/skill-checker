@@ -32,7 +32,7 @@ const Resources = {
       DomPage.render(response.result.values, build);
     }, (reason) => {
       console.log('Error: ', reason.result.error);
-      Resources.display(['No data found.', '#'])
+      DomPage.render(['No data found.', '#'], 'options')
     });
   },
 
