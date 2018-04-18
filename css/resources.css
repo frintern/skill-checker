@@ -38,3 +38,13 @@ input, button {
   font-family: monospace;
   font-size: 1em;
 }
+
+
+footer {
+  flex: 0;
+  align-self: center;
+}
+
+.footer {
+  text-align: center;
+}

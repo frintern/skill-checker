@@ -74,7 +74,7 @@ const DomPage = {
       return `<p><b>${listArr[0]}</b></p>`
     } else {
       // build a linked paragraph --- url is present(assumption)
-      return `<p>${listArr[0]} <a href='${listArr[1]}' target='_blank'>View resource</a></p>`
+      return `<p>${listArr[0]} <a href='${listArr[1]}' target='_blank'>View learning playlist</a></p>`
     }
   },
 
@@ -82,7 +82,7 @@ const DomPage = {
     return `
     <h3>${listArr[0]}</h3>
     <p>${listArr[1]}</p>
-    <button onclick='Resources.getPlayList("${listArr[2]}")'>View learning playlist</button>
+    <button onclick='Resources.getPlayList("${listArr[2]}")'>Learn this job</button>
     `
   }
 }

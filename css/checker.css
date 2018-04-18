@@ -40,3 +40,13 @@ a {
   font-size: 20px;
   text-decoration: none;
 }
+
+
+footer {
+  flex: 0;
+  align-self: center;
+}
+
+.footer {
+  text-align: center;
+}
