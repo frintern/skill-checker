@@ -45,11 +45,11 @@ const Checker = {
           "key": "2"
         },
         {
-          "text": "Event Management",
+          "text": "Managing an event",
           "key": "3"
         },
         {
-          "text": "Business Management",
+          "text": "Managing a Business",
           "key": "3"
         }
       ]
