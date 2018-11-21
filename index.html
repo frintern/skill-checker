@@ -1,55 +1,166 @@
-<!Doctype html>
-<html>
-
-  <head>
-    <meta charset="utf-8">
-    <title>Checker</title>
-    <link rel="stylesheet" href="css/index.css">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- Global site tag (gtag.js) - Google Analytics -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-116318405-1"></script>
-    <script async src="javascript/g-tracking.js"></script>
-  </head>
-
-  <body>
-
-
-    <header>
-      <!-- The text logo-->
-      <ul class="logo">
-        <li><a href="index.html">Frintern</a></li>
-      </ul>
-
-    </header>
-
-
-    <div class="body">
-
-      <!-- The header -->
-      <h1>Get started in Tech</h1>
-      <p>We know finding where you fit in the tech world is hard, let us help you.</p>
-
-      <form id="user-details" action="#">
-        <input type="email" name="email" id="email" value='' placeholder="Enter Email" required>
-        <button type="submit">Get started</button>
-      </form>
-
-    </div>
-
-    <footer class="footer">
-      <p>&copy; 2018 Frintern</p>
-      <!-- feedback-->
-      <ul class="feedback">
-        <li><a href="https://github.com/frintern/skill-checker-testing/issues/new" target="_blank">Leave a feedback</a></li>
-        <li><a href="http://bit.ly/frtn-learnlab" target="_blank">Sign up for our Skill Learning Labs</a></li>
-      </ul>
-    </footer>
-
-    <!-- Linking Javascript -->
-    <script src="javascript/jquery-3.3.1.min.js"></script>
-    <script src="javascript/index.js"></script>
-
-  </body>
-
-
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta class="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+	<title>Learn Software Development, Design, Management and Marketing Free | Frintern</title>
+	<!-- Don't forget to add your metadata here -->
+	<meta name="description" content="Frintern is a fast, free and personalised tech career accelerator. Find and grow in a career you love.">
+	<link rel="stylesheet" href="css/style.min.css" />
+	<link rel="icon" href="favicon.png">
+	<!-- Global site tag (gtag.js) - Google Analytics -->
+	<script async src="https://www.googletagmanager.com/gtag/js?id=UA-116318405-1"></script>
+	<script async src="javascript/g-tracking.js"></script>
+</head>
+<body>
+	<!-- Hero(extended) navbar -->
+	<div class="navbar navbar--extended">
+		<nav class="nav__mobile"></nav>
+		<div class="container">
+			<div class="navbar__inner">
+				<a href="index.html" class="navbar__logo">Frintern</a>
+				<nav class="navbar__menu">
+					<ul>
+						<li><a href="https://medium.com/frintern/meet-frintern-a-better-way-to-learn-4509754b48ee" target="_blank">ABOUT</a></li>
+						<li><a href="https://github.com/frintern/skill-checker-testing/issues/new" target="_blank">LEAVE FEEDBACK</a></li>
+					</ul>
+				</nav>
+				<div class="navbar__menu-mob"><a href="" id="toggle"><svg role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path fill="currentColor" d="M16 132h416c8.837 0 16-7.163 16-16V76c0-8.837-7.163-16-16-16H16C7.163 60 0 67.163 0 76v40c0 8.837 7.163 16 16 16zm0 160h416c8.837 0 16-7.163 16-16v-40c0-8.837-7.163-16-16-16H16c-8.837 0-16 7.163-16 16v40c0 8.837 7.163 16 16 16zm0 160h416c8.837 0 16-7.163 16-16v-40c0-8.837-7.163-16-16-16H16c-8.837 0-16 7.163-16 16v40c0 8.837 7.163 16 16 16z" class=""></path></svg></a></div>
+			</div>
+		</div>
+	</div>
+	<!-- Hero unit -->
+	<div class="hero">
+		<div class="hero__overlay hero__overlay--gradient"></div>
+		<div class="hero__mask"></div>
+		<div class="hero__inner">
+			<div class="container">
+				<div class="hero__content">
+					<div class="hero__content__inner" id="navConverter">
+						<h1 class="hero__title">GET A CAREER THAT FITS YOU</h1>
+						<p class="hero__text">Frintern is a personalised tech and business career accelerator for the way we work now. Find, grow and land a career you love at no cost to you.</p>
+						<form id="user-details" action="#">
+							<input type="email" name="email" id="email" value="" placeholder="Enter your email to get started" required>
+							<button type="submit" class="button button__accent">Get started</button>
+						</form>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="hero__sub">
+		<span id="scrollToNext" class="scroll">
+			<svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" class="hero__sub__down" fill="currentColor" width="512px" height="512px" viewBox="0 0 512 512" style="enable-background:new 0 0 512 512;" xml:space="preserve"><path d="M256,298.3L256,298.3L256,298.3l174.2-167.2c4.3-4.2,11.4-4.1,15.8,0.2l30.6,29.9c4.4,4.3,4.5,11.3,0.2,15.5L264.1,380.9c-2.2,2.2-5.2,3.2-8.1,3c-3,0.1-5.9-0.9-8.1-3L35.2,176.7c-4.3-4.2-4.2-11.2,0.2-15.5L66,131.3c4.4-4.3,11.5-4.4,15.8-0.2L256,298.3z"/></svg>
+		</span>
+	</div>
+	<!-- Steps -->
+	<div class="steps landing__section">
+		<div class="container">
+			<h2>How it works</h2>
+			<!-- <p>Frintern finds you a tech or business career that suits you based on your interests. Connects you with microlearning resources, tasks and a support community of mentors to help you learn these skills in days. Builds your portfolio, work experience and gets you the best possible job or an internship. At no monetary cost to you.</p> -->
+		</div>
+		<div class="container">
+			<div class="steps__inner">
+				<div class="step">
+					<div class="step__media">
+						<img src="./images/undraw_todo_list.svg" class="step__image">
+					</div>
+					<p class="step__text">Enter your email and answer a few questions to help us create a detailed learning profile for you.</p>
+				</div>
+				<div class="step">
+					<div class="step__media">
+						<img src="./images/undraw_hiring.svg" class="step__image">
+					</div>
+					<p class="step__text">Instantly see the career path that fits your hobbies and suits your interests.</p>
+				</div>
+				<div class="step">
+					<div class="step__media">
+						<img src="./images/undraw_gift.svg" class="step__image">
+					</div>
+					<p class="step__text">Access free resources and a support community of mentors to help you learn fast.</p>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- Expanded sections -->
+	<div class="expanded landing__section">
+		<div class="container">
+			<div class="expanded__inner">
+				<div class="expanded__media">
+					<img src="./images/undraw_chilling.svg" class="expanded__image">
+				</div>
+				<div class="expanded__content">
+					<h2 class="expanded__title">Frintern is Personalised and Fun</h2>
+					<p class="expanded__text">As a member of our learning community, we use your detailed learning profile to create fun and engaging learning experiences tailored to you. From fun learning labs to smart microcontent, we got you covered.</p>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="expanded landing__section">
+		<div class="container">
+			<div class="expanded__inner">
+				<div class="expanded__media">
+					<img src="./images/together.svg" class="expanded__image">
+				</div>
+				<div class="expanded__content">
+					<h2 class="expanded__title">Fast and Free</h2>
+					<p class="expanded__text">With all the free information online these days, why pay huge amounts to learn? We've spent the past year curating free resources that help you create mental models for modern work skills.</p>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="expanded landing__section">
+		<div class="container">
+			<div class="expanded__inner">
+				<div class="expanded__media">
+					<img src="./images/undraw_jobhunt.svg" class="expanded__image">
+				</div>
+				<div class="expanded__content">
+					<h2 class="expanded__title">And You Get A Job</h2>
+					<p class="expanded__text">An internship or paid gigs. Our partner companies trust us to help them grow. We'll be your plug to these companies, help you build your work profile and showcase your skills.</p>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- Call To Action -->
+	<div class="cta cta--reverse">
+		<div class="container">
+			<div class="cta__inner">
+				<h2 class="cta__title">Get started now</h2>
+				<p class="cta__sub cta__sub--center">Click the button below and start your journey to land your dream job.</p>
+				<a href="https://frintern-pathfinder.herokuapp.com/quiz" target="_blank" class="button button__accent">Find your career fit</a>
+			</div>
+		</div>
+	</div>
+	<!-- Footer -->
+	<div class="footer footer--dark">
+		<div class="container">
+			<div class="footer__inner">
+				<a href="index.html" class="footer__textLogo">Frintern</a>
+				<div class="footer__data">
+					<div class="footer__data__item">
+						<div class="footer__row">
+							By <a href="https://frintern.com" class="footer__link">Frintern</a> with Love.
+						</div>
+					</div>
+					<div class="footer__data__item">
+					<!-- <div class="footer__row">
+						<a href="https://github.com/frintern" target="_blank" class="footer__link">GitHub</a>
+					</div>
+					<div class="footer__row">
+						<a href="https://twitter.com/meetfrintern" target="_blank" class="footer__link">Twitter</a>
+					</div> -->
+					<div class="footer__row">
+						<a href="mailto:frinternng@gmail.com" target="_blank" class="footer__link">Contact Us</a>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- Linking Javascript -->
+	<script src="javascript/jquery-3.3.1.min.js"></script>
+	<script src="javascript/index.js"></script>
+	<script src="js/app.min.js"></script>
+	</div>
+</body>
 </html>
