@@ -1,4 +1,5 @@
-## Skill-Checker
+# Pathfinder
+Originally conceptualised by [Opemipo Aikomo](https://twitter.com/fathermerry), this is an app to help anyone find and start a career in tech. Learn more [here](https://frintern.github.io/skill-checker/index.html)
 
 ### To run in dev:
 *Note: this is needed to be able to make calls to the google-sheets API from some "host" that is not just the local file system*
