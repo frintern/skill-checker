@@ -97,6 +97,7 @@ const UserDetails = {
   skillsetWeights: {},
 
   persist: () => {
+    // using app-scripts based on https://developers.google.com/apps-script/guides/web
     const body = UserDetails.buildParams();
     $.ajax({
       type: "POST",

@@ -215,26 +215,6 @@ const Checker = {
     }
   },
 
-  showQuestion: (obj, index) => {
-    const answers = Checker.buildPossibleAnswers(obj.answers);
-    $('#question-form #index').val(index);
-    $('#question-form #question').html(obj.question);
-    $('#question-form #answers').html(answers);
-  },
-
-  buildPossibleAnswers: (ans_arr) => {
-    var ansHtml = "<ul>";
-    $.each(ans_arr, (index, ans) => {
-      ansHtml += "<li>"
-      ansHtml += `<input type='checkbox' value='${ans.key}' id='r-${index}'>`
-      ansHtml += `<label for='r-${index}'>${ans.text}</label><br>`
-      ansHtml += "</li>";
-    });
-    ansHtml += "</ul>";
-
-    return ansHtml;
-  },
-
   getResponseTexts: () => {
     const responses = $('#question-form #answers input:checked').map((i,c) => c.labels[0].innerText);
     return responses.get().join(', ');
